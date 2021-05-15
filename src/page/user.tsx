@@ -3,7 +3,7 @@ import MaterialTable from "material-table";
 import firebase from "firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import { UserModel } from "../model";
+import { DefaultImageUrl, UserModel } from "../model";
 import { v4 as uuid } from "uuid";
 
 export default function UserPage() {
@@ -16,6 +16,7 @@ export default function UserPage() {
       newData.id = id;
       newData.timestamp = Date.now();
       newData.fcmToken = null;
+      newData.imageUrl = DefaultImageUrl;
       await collectionRef.doc(id).set(newData);
     } catch (error) {
       alert(error);

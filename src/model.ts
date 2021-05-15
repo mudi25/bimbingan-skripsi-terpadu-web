@@ -1,3 +1,5 @@
+export const DefaultImageUrl =
+  "https://storage.googleapis.com/bimbimngan-skripsi-terpadu.appspot.com/profil.png";
 export interface UserModel {
   id: string;
   username: string;
@@ -8,12 +10,18 @@ export interface UserModel {
   jurusan: string;
   fakultas: string;
   roles: "DOSEN" | "MAHASISWA" | "ADMIN";
+  imageUrl: string;
   fcmToken: string | null;
   timestamp: number;
 }
 export interface Jadwal {
-  timestamp: number;
+  id: string;
+  idSkripsi: string;
   keterangan: string;
+  mahasiswa: string;
+  pembimbing: string;
+  query: string[];
+  timestamp: number;
 }
 export interface SkripsiModel {
   id: string;
@@ -21,6 +29,7 @@ export interface SkripsiModel {
   pembimbing1: string;
   pembimbing2: string;
   mahasiswa: string;
+  query: string[];
   jadwal: { [key: string]: Jadwal };
   timestamp: number;
 }
