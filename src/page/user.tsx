@@ -3,9 +3,8 @@ import MaterialTable from "material-table";
 import firebase from "firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import { DefaultImageUrl, UserModel } from "../model";
+import { DefaultImageUrl, FAKULTAS, JURURSAN, UserModel } from "../model";
 import { v4 as uuid } from "uuid";
-
 export default function UserPage() {
   const firestore = firebase.apps[0].firestore();
   const collectionRef = firestore.collection("user");
@@ -57,12 +56,12 @@ export default function UserPage() {
             {
               title: "Fakultas",
               field: "fakultas",
-              lookup: { TEKNIK: "TEKNIK", HUKUM: "HUKUM" },
+              lookup: FAKULTAS,
             },
             {
               title: "Jurusan",
               field: "jurusan",
-              lookup: { INFORMATIKA: "INFORMATIKA", PERDATA: "PERDATA" },
+              lookup: JURURSAN,
             },
             {
               title: "Roles",
